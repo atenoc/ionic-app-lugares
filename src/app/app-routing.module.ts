@@ -8,8 +8,20 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'lugares',
     pathMatch: 'full'
+  },
+  {
+    path: 'lugares',
+    children:[
+      { path: '', loadChildren: () => import('./lugares/lugares.module').then( m => m.LugaresPageModule)},
+      { path: ':placeId', loadChildren: () => import('./lugares/lugar-detalle/lugar-detalle.module').then( m => m.LugarDetallePageModule) }
+    ]
+    
+  },
+  {
+    path: 'nuevo-lugar',
+    loadChildren: () => import('./lugares/lugar-agregar/lugar-agregar.module').then( m => m.LugarAgregarPageModule)
   },
 ];
 

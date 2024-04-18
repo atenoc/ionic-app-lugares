@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/lugares"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Nuevo Lugar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+
+          <div>
+            <ion-label>Titulo: </ion-label>
+          </div>
+          <ion-item>
+            <ion-input type="text" #titulo></ion-input>
+          </ion-item>
+          <div>
+            <ion-label>URL Imágen: </ion-label>
+          </div>
+          <ion-item>
+            <ion-input type="text" #urlImagen placeholder="http://imagen.com/imagen.jpg"></ion-input>
+          </ion-item>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-button color="success" expand="block" (click)="agregarLugar(titulo, urlImagen)">Agregar</ion-button>
+
+</ion-content>

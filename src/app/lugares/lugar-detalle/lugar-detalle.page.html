@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/lugares"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title> {{ lugar.titulo }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button color="danger" (click)="eliminarLugar()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="lugar.urlImagen"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h3 class="ion-text-center">{{ lugar.titulo }}</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list *ngIf="lugar.comentarios && lugar.comentarios.length > 0; else noComentarios">
+          <ion-item *ngFor="let comentario of lugar.comentarios">
+            <span >{{ comentario }}</span>
+          </ion-item>
+        </ion-list>
+
+        <ng-template #noComentarios>
+          <ion-text>
+            No hay comentarios todavía
+          </ion-text>
+        </ng-template>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
